@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Usecases\ParcoursUseCases\Delete\" />
+      <Folder Include="Usecases\ParcoursUseCases\Get\" />
+      <Folder Include="Usecases\ParcoursUseCases\Update\" />
+      <Folder Include="Usecases\UeUseCases\Delete\" />
+      <Folder Include="Usecases\UeUseCases\Get\" />
+      <Folder Include="Usecases\UeUseCases\Update\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Exceptions\EtudiantExceptions\InvalidNomParcoursException.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="MySql.Data.EntityFramework" Version="9.1.0" />
+      <PackageReference Include="MySql.Data.NET40" Version="1.0.0" />
+    </ItemGroup>
+
+</Project>
