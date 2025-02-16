@@ -87,6 +87,23 @@ public class UniversiteDbContext : IdentityDbContext<UniversiteUser>
         modelBuilder.Entity<UniversiteUser>()
             .HasOne<Etudiant>(user => user.Etudiant)
             .WithOne()
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             .HasForeignKey<Etudiant>();
         modelBuilder.Entity<Etudiant>()
             .HasOne<UniversiteUser>()

@@ -8,7 +8,9 @@ using UniversiteDomain.UseCases.EtudiantUseCases;
 using UniversiteDomain.UseCases.EtudiantUseCases.Create;
 using UniversiteDomain.UseCases.EtudiantUseCases.Delete;
 using UniversiteDomain.UseCases.EtudiantUseCases.Get;
+using UniversiteDomain.UseCases.EtudiantUseCases.Update;
 using UniversiteDomain.UseCases.SecurityUseCases.Create;
+using UniversiteDomain.UseCases.SecurityUseCases.Get;
 using UniversiteEFDataProvider.Entities;
 
 namespace UniversiteRestApi.Controllers
@@ -189,7 +191,7 @@ namespace UniversiteRestApi.Controllers
                 {
                     UserName = etudiantDto.Email,
                     Email = etudiantDto.Email,
-                    Etudiant = etudiantDto.ToEntity() // Associer l'étudiant
+                    Etudiant = etudiantDto.ToEntity() 
                 });
 
                 await updateEtudiantUc.ExecuteAsync(etudiantDto.ToEntity());

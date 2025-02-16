@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using UniversiteDomain.DataAdapters;
 using UniversiteDomain.Entities;
 using UniversiteEFDataProvider.Data;
@@ -30,4 +31,12 @@ public class UeRepository(UniversiteDbContext context) : Repository<Ue>(context)
         Parcours parcours = (await Context.Parcours.FindAsync(idParcours))!;
         return parcours.UesEnseignees.ToList();
     }
+    
+    public async Task<Ue?> FindByNumeroUeAsync(string numeroUe)
+    {
+        return await Context.Ues
+            .AsNoTracking()
+            .FirstOrDefaultAsync(ue => ue.NumeroUe == numeroUe);
+    }
+
 }
