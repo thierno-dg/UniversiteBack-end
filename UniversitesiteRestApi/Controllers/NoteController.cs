@@ -29,7 +29,7 @@ namespace UniversiteRestApi.Controllers
             try
             {
                 var csvContent = await _genererCSVNotesUseCase.ExecuteAsync(ueId);
-                return File(System.Text.Encoding.UTF8.GetBytes(csvContent), "text/csv", $"UE_{ueId}_Notes.csv");
+                return File(System.Text.Encoding.UTF8.GetBytes(csvContent), "text/csv", "UE_{ueId}_Notes.csv");
             }
             catch (CsvProcessingException e)
             {
@@ -48,8 +48,8 @@ namespace UniversiteRestApi.Controllers
 
             try
             {
-                Console.WriteLine($" Début du traitement du fichier CSV pour l'UE {ueId}");
-                Console.WriteLine($" Nom du fichier : {file.FileName}, Taille : {file.Length} octets");
+                Console.WriteLine(" Début du traitement du fichier CSV pour l'UE {ueId}");
+                Console.WriteLine(" Nom du fichier : {file.FileName}, Taille : {file.Length} octets");
 
                 using (var stream = file.OpenReadStream())
                 {
@@ -61,7 +61,7 @@ namespace UniversiteRestApi.Controllers
             }
             catch (CsvProcessingException e)
             {
-                Console.WriteLine($" Erreur lors du traitement du fichier CSV: {e.Message}");
+                Console.WriteLine(" Erreur lors du traitement du fichier CSV: {e.Message}");
                 return BadRequest(new { error = e.Message });
             }
             catch (Exception ex)
